@@ -19,11 +19,14 @@ public class PersonController {
 
     @RequestMapping("/")
     public @ResponseBody List<Person> listPeople() {
-        return personService.listPeople();
+
+        List<Person> people = personService.listPeople();
+
+        return people;
     }
 
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    /*@RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addPerson(@ModelAttribute("person") Person person, BindingResult result) {
 
         personService.addPerson(person);
@@ -37,7 +40,7 @@ public class PersonController {
         personService.removePerson(personId);
 
         return "redirect:/";
-    }
+    }*/
 
 
    /* @RequestMapping(value="/{name}", method = RequestMethod.GET)

@@ -48,7 +48,7 @@
             </form:form>
 
 
-            <c:if  test="${!empty peopleList}">
+            <c:if  test="${!empty people}">
                 <h3>People</h3>
                 <table class="table table-bordered table-striped">
                     <thead>
@@ -58,7 +58,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach items="${peopleList}" var="person">
+                    <c:forEach items="${people}" var="person">
                         <tr>
                             <td>${person.firstName}, ${person.lastName}</td>
                             <td><form action="delete/${person.id}" method="post"><input type="submit" class="btn btn-danger btn-mini" value="Delete"/></form></td>
