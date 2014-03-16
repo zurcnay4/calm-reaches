@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import com.example.model.Person;
 import com.example.service.PersonService;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -16,14 +17,11 @@ public class PersonController {
     @Autowired
     private PersonService personService;
 
-    @RequestMapping("/")
-    public String listPeople(Map<String, Object> map) {
-
-        map.put("person", new Person());
-        map.put("peopleList", personService.listPeople());
-
-        return "people";
+    @RequestMapping("/rest")
+    public @ResponseBody List<Person> listPeople() {
+        return personService.listPeople();
     }
+/*
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addPerson(@ModelAttribute("person") Person person, BindingResult result) {
@@ -40,13 +38,14 @@ public class PersonController {
 
         return "redirect:/people/";
     }
+*/
 
-    @RequestMapping(value="/{name}", method = RequestMethod.GET)
+   /* @RequestMapping(value="/{name}", method = RequestMethod.GET)
     public @ResponseBody Person getPersonInJSON(@PathVariable String name) {
         Person p = new Person();
         p.setFirstName(name);
         p.setLastName("JSON");
 
         return p;
-    }
+    }*/
 }
