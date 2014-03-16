@@ -17,11 +17,11 @@ public class PersonController {
     @Autowired
     private PersonService personService;
 
-    @RequestMapping("/rest")
+    @RequestMapping("/")
     public @ResponseBody List<Person> listPeople() {
         return personService.listPeople();
     }
-/*
+
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addPerson(@ModelAttribute("person") Person person, BindingResult result) {
@@ -38,7 +38,7 @@ public class PersonController {
 
         return "redirect:/people/";
     }
-*/
+
 
    /* @RequestMapping(value="/{name}", method = RequestMethod.GET)
     public @ResponseBody Person getPersonInJSON(@PathVariable String name) {
