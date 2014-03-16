@@ -41,7 +41,7 @@ public class PersonController {
         return "redirect:/people/";
     }
 
-    @RequestMapping(value="/rest/{name}", method = RequestMethod.GET)
+    @RequestMapping(value="/{name}", method = RequestMethod.GET)
     public @ResponseBody Person getPersonInJSON(@PathVariable String name) {
         Person p = new Person();
         p.setFirstName(name);
